@@ -1,0 +1,16 @@
+==================
+Class definition
+==================
+
+class Test
+end Test;
+
+---
+
+(StoredDefinition
+      (ClassDefinitionClause
+        (ClassDefinition
+          (ClassPrefixes)
+          (LongClassSpecifier
+            (IDENT)
+            (IDENT)))))

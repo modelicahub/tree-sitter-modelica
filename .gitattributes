@@ -1,0 +1,14 @@
+* text eol=lf
+
+src/*.json linguist-generated
+src/parser.c linguist-generated
+src/tree_sitter/* linguist-generated
+
+bindings/** linguist-generated
+binding.gyp linguist-generated
+Cargo.toml linguist-generated
+pyproject.toml linguist-generated
+go.mod linguist-generated
+setup.py linguist-generated
+Makefile linguist-generated
+Package.swift linguist-generated
