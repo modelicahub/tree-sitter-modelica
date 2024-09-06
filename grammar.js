@@ -65,6 +65,8 @@ module.exports = grammar({
       field('classDefinition', $.ClassDefinition), ';',
     ),
 
+    // A.2.2 Class Definition
+
     ClassDefinition: $ => seq(
       optional(field('encapsulated', 'encapsulated')),
       field('classPrefixes', $.ClassPrefixes),
@@ -175,7 +177,7 @@ module.exports = grammar({
     ExternalFunctionCall: $ => seq(
       optional(seq(field('output', $.ComponentReference), '=')),
       field('functionName', $.IDENT),
-      '(', optional(field('argument', $.ExpressionList)), ')',
+      '(', optional(field('arguments', $.ExpressionList)), ')',
     ),
 
     InitialElementList: $ => repeat1(field('element', $._Element)),
