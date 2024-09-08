@@ -701,7 +701,7 @@ module.exports = grammar({
     ),
 
     ArrayConcatenation: $ => seq(
-      '[', field('expressionList', $.ExpressionList), repeat(seq(';', field('expressionList', $.ExpressionList))), ']',
+      '[', commaSep1(field('expressionList', $.ExpressionList), ';'), ']',
     ),
 
     ArrayConstructor: $ => seq(
