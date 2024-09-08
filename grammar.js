@@ -734,7 +734,7 @@ module.exports = grammar({
     ),
 
     ParenthesizedExpression: $ => seq(
-      '(', commaSep(optional(field('expression', $._Expression)), field('comma', ',')), ')',
+      '(', commaSep(optional(field('expression', $._Expression)), ','), ')',
     ),
 
     ExpressionList: $ => commaSep1(field('expression', $._Expression)),
