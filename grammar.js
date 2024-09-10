@@ -172,7 +172,7 @@ module.exports = grammar({
       optional(field('annotationClause', $.AnnotationClause)),
     ),
 
-    LanguageSpecification: $ => field('language', $.STRING),
+    LanguageSpecification: $ => field('language', $.StringLiteral),
 
     ExternalFunctionCall: $ => seq(
       optional(seq(field('output', $.ComponentReference), '=')),
@@ -264,7 +264,7 @@ module.exports = grammar({
     InheritanceModification: $ => seq(
       'break',
       choice(
-        field('connectEquation', $.ConnectEquation),
+        field('connectClause', $.ConnectClause),
         field('identifier', $.IDENT),
       ),
     ),
@@ -510,14 +510,18 @@ module.exports = grammar({
     ),
 
     ConnectEquation: $ => seq(
+      field('connectClause', $.ConnectClause),
+      optional(field('descriptionString', $.DescriptionString)),
+      optional(field('annotationClause', $.AnnotationClause)),
+      ';',
+    ),
+
+    ConnectClause: $ => seq(
       'connect', '(',
       field('componentReference1', $.ComponentReference),
       ',',
       field('componentReference2', $.ComponentReference),
       ')',
-      optional(field('descriptionString', $.DescriptionString)),
-      optional(field('annotationClause', $.AnnotationClause)),
-      ';',
     ),
 
     BreakStatement: $ => seq(
@@ -748,7 +752,7 @@ module.exports = grammar({
       field('expression', $._Expression),
     ),
 
-    DescriptionString: $ => commaSep1(field('string', $.STRING), '+'),
+    DescriptionString: $ => commaSep1(field('string', $.StringLiteral), '+'),
 
     AnnotationClause: $ => seq(
       'annotation', field('classModification', $.ClassModification),

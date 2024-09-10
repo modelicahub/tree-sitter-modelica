@@ -948,7 +948,7 @@
       "name": "language",
       "content": {
         "type": "SYMBOL",
-        "name": "STRING"
+        "name": "StringLiteral"
       }
     },
     "ExternalFunctionCall": {
@@ -996,7 +996,7 @@
           "members": [
             {
               "type": "FIELD",
-              "name": "argument",
+              "name": "arguments",
               "content": {
                 "type": "SYMBOL",
                 "name": "ExpressionList"
@@ -1665,10 +1665,10 @@
           "members": [
             {
               "type": "FIELD",
-              "name": "connectEquation",
+              "name": "connectClause",
               "content": {
                 "type": "SYMBOL",
-                "name": "ConnectEquation"
+                "name": "ConnectClause"
               }
             },
             {
@@ -3565,36 +3565,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "connect"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
           "type": "FIELD",
-          "name": "componentReference1",
+          "name": "connectClause",
           "content": {
             "type": "SYMBOL",
-            "name": "ComponentReference"
+            "name": "ConnectClause"
           }
-        },
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "FIELD",
-          "name": "componentReference2",
-          "content": {
-            "type": "SYMBOL",
-            "name": "ComponentReference"
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
         },
         {
           "type": "CHOICE",
@@ -3631,6 +3607,43 @@
         {
           "type": "STRING",
           "value": ";"
+        }
+      ]
+    },
+    "ConnectClause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "connect"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "componentReference1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ComponentReference"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "FIELD",
+          "name": "componentReference2",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ComponentReference"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },
@@ -5421,32 +5434,37 @@
           "value": "["
         },
         {
-          "type": "FIELD",
-          "name": "expressionList",
-          "content": {
-            "type": "SYMBOL",
-            "name": "ExpressionList"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ";"
-              },
-              {
-                "type": "FIELD",
-                "name": "expressionList",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "ExpressionList"
-                }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "expressionList",
+              "content": {
+                "type": "SYMBOL",
+                "name": "ExpressionList"
               }
-            ]
-          }
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  },
+                  {
+                    "type": "FIELD",
+                    "name": "expressionList",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "ExpressionList"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -5693,12 +5711,8 @@
                     "type": "SEQ",
                     "members": [
                       {
-                        "type": "FIELD",
-                        "name": "comma",
-                        "content": {
-                          "type": "STRING",
-                          "value": ","
-                        }
+                        "type": "STRING",
+                        "value": ","
                       },
                       {
                         "type": "CHOICE",
@@ -5840,7 +5854,7 @@
           "name": "string",
           "content": {
             "type": "SYMBOL",
-            "name": "STRING"
+            "name": "StringLiteral"
           }
         },
         {
@@ -5857,7 +5871,7 @@
                 "name": "string",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "STRING"
+                  "name": "StringLiteral"
                 }
               }
             ]

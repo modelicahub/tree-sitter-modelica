@@ -1134,19 +1134,9 @@
     }
   },
   {
-    "type": "ConnectEquation",
+    "type": "ConnectClause",
     "named": true,
     "fields": {
-      "annotationClause": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "AnnotationClause",
-            "named": true
-          }
-        ]
-      },
       "componentReference1": {
         "multiple": false,
         "required": true,
@@ -1163,6 +1153,32 @@
         "types": [
           {
             "type": "ComponentReference",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ConnectEquation",
+    "named": true,
+    "fields": {
+      "annotationClause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "AnnotationClause",
+            "named": true
+          }
+        ]
+      },
+      "connectClause": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ConnectClause",
             "named": true
           }
         ]
@@ -1306,7 +1322,7 @@
         "required": true,
         "types": [
           {
-            "type": "STRING",
+            "type": "StringLiteral",
             "named": true
           }
         ]
@@ -1868,7 +1884,7 @@
     "type": "ExternalFunctionCall",
     "named": true,
     "fields": {
-      "argument": {
+      "arguments": {
         "multiple": false,
         "required": false,
         "types": [
@@ -2408,12 +2424,12 @@
     "type": "InheritanceModification",
     "named": true,
     "fields": {
-      "connectEquation": {
+      "connectClause": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "ConnectEquation",
+            "type": "ConnectClause",
             "named": true
           }
         ]
@@ -2455,7 +2471,7 @@
         "required": true,
         "types": [
           {
-            "type": "STRING",
+            "type": "StringLiteral",
             "named": true
           }
         ]
@@ -2787,16 +2803,6 @@
     "type": "ParenthesizedExpression",
     "named": true,
     "fields": {
-      "comma": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          }
-        ]
-      },
       "expression": {
         "multiple": true,
         "required": false,
